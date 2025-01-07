@@ -3,22 +3,6 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 from Core.CommandExecutor.system_commands import open_application, execute_system_command
 
-# def execute_task(task):
-#     """
-#     Executes a task based on its action and target.
-#     """
-#     try:
-#         if task["action"] == "open":
-#             open_application(task["target"])
-#         elif task["action"] == "system":
-#             execute_system_command(task["target"])
-#         else:
-#             print(f"Unknown task: {task}")
-#     except KeyError as e:
-#         print(f"Task format error, missing key: {e}")
-#     except Exception as e:
-#         print(f"Error executing task: {e}")
-
 def execute_task(task):
     """
     Executes a task based on its action and target.
