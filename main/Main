@@ -6,6 +6,7 @@ import time
 import speech_recognition as sr
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../..')) 
+from Core.VoiceRecognition.voice_verification import verify_voice
 from Core.CommandExecutor.command_executor import CommandExecutor
 
 def listen_for_commands():
@@ -31,18 +32,32 @@ def listen_for_commands():
         return None
 
 def main():
-    """Main function that coordinates the assistant."""
-    print("Asvatha is ready to assist. Say something!")
+    print("Starting Asvatha Voice Assistant...")
+    
+    # # Authenticate the user's voice
+    # print("Authenticating voice...")
+    # if verify_voice():
+    #     print("Authentication successful. You can now give commands.")
+    #     executor = CommandExecutor()
+    #     while True:
+    #         command = listen_for_commands()
+    #         if command.lower() == 'exit':
+    #             print("Exiting Asvatha Assistant. Goodbye!")
+    #             break
+    #         executor.execute(command)
+    # else:
+    #     print("Authentication failed. Exiting...")
+    #     return
     executor = CommandExecutor()  # Use the CommandExecutor instance to handle commands
 
     while True:
         # Listen for commands
         command = listen_for_commands()
 
-        if command:
-            executor.execute(command)  # Delegate command execution to the executor
-        else:
-            print("No tasks in the queue.")
+        if command.lower() == 'exit':
+            print("Exiting Asvatha Assistant. Goodbye!")
+            break
+        executor.execute(command)
 
 if __name__ == "__main__":
     main()

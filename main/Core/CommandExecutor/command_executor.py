@@ -151,7 +151,7 @@ if __name__ == "__main__":
     executor = CommandExecutor()
 
     # Test cases
-    executor.execute("start notepad")  # Should open Chrome directly if it's in app_mappings
-    executor.execute("close notepad")
+    executor.execute("start notepad")  # hould open Chrome directly if it's in app_mappings
+    # executor.execute("close notepad")
     # executor.execute("open Chrome")  # Same for "open" command
-    # executor.execute("shutdown")  # Should trigger system shutdown
+    # executor.execute("shutdown")  # Should trigger system shutdown # Should download the file
